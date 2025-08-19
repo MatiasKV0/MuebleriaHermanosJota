@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --colorfondo: #F5E6D3;
+  --colorprimario: #A0522D;
+  --colorsecundario: #87A96B; 
+  --colordetallesoro: #D4A437;
+  --colordetallesrosa: #C47A6D;
+}
+
+
+main{
+  background-color: var(--colorfondo);
+  min-height: 70vh;
+}
+
+h1{
+  font-family: "Playfair Display", Georgia;
+}
+
+

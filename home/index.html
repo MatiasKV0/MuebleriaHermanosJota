@@ -3,30 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carrito</title>
+    <title>Mueblería Hermanos Jota</title>
     <link rel="icon" href="public/img/logo.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="home.css" />
   </head>
   <body>
     <header>
-      <a href="index.html"><img src="public/img/logo.svg" alt="Mueblería Hermanos Jota Logo" /></a>
+      <a href="/home/index.html"
+        ><img src="/public/img/logo.svg" alt="Mueblería Hermanos Jota Logo"
+      /></a>
       <form action="#">
         <input type="text" placeholder="Buscar productos..." />
       </form>
       <nav>
         <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="productos.html">Productos</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="/home/index.html">Inicio</a></li>
+          <li><a href="/productos/productos.html">Productos</a></li>
+          <li><a href="/contacto/contacto.html">Contacto</a></li>
         </ul>
       </nav>
-      <a href="carrito.html"
-        ><img src="public/img/carrito.png" alt="Carrito de Compras"
+      <a href="/carrito/carrito.html"
+        ><img src="/public/img/carrito.png" alt="Carrito de Compras"
       /></a>
     </header>
 
     <main>
-      <h1>Carrito</h1>
+      <section id="hero">
+        <h1>Mueblería Hermanos Jota</h1>
+        <img src="/public/img/hero-banner.jpg" alt="Mueblería Hermanos Jota" />
+      </section>
+      <section>
+        <!-- Productos Destacados Section -->
+      </section>
+      <section>
+        <!-- About Us Section -->
+      </section>
+      <section>
+        <!-- Review Section-->
+      </section>
     </main>
 
     <footer>
@@ -34,7 +51,12 @@
         <div>
           <div>
             <ul>
-              <li><img src="public/img/logo.svg" alt="Mueblería Hermanos Jota Logo" /></li>
+              <li>
+                <img
+                  src="/public/img/logo.svg"
+                  alt="Mueblería Hermanos Jota Logo"
+                />
+              </li>
               <li>Sitio web www.hermanosjota.com.ar</li>
               <li>Email general info@hermanosjota.com.ar</li>
               <li>Ventas ventas@hermanosjota.com.ar</li>
@@ -45,9 +67,9 @@
         </div>
         <div>
           <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="/home/index.html">Inicio</a></li>
+            <li><a href="/productos/productos.html">Productos</a></li>
+            <li><a href="/contacto/contacto.html">Contacto</a></li>
           </ul>
         </div>
         <div>
@@ -67,6 +89,7 @@
         <p>© 2025 Hermanos Jota. Todos los derechos reservados.</p>
       </div>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
