@@ -71,7 +71,7 @@ section div h1 {
   margin-bottom: 1.5rem;
 }
 
-section div article {
+section div a {
   border: 2px var(--colorprimario) solid;
   border-radius: 8px;
   display: flex;
@@ -83,7 +83,7 @@ section div article {
   box-sizing: border-box;
 }
 
-section div article img {
+section div a img {
   max-block-size: 80%;
   object-fit: contain;
   display: block;
@@ -107,7 +107,7 @@ section div article img {
     text-align: center;
   }
 
-  section div article {
+  section div a {
     width: 90vw;
     max-width: 340px;
     height: 300px;
@@ -147,7 +147,7 @@ section div article img {
     margin-bottom: 1rem;
   }
 
-  section div article {
+  section div a {
     width: 90vw;
     max-width: 320px;
     height: 220px;
