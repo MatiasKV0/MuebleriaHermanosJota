@@ -30,7 +30,11 @@ aside input[type="search"] {
   background: transparent;
   font-size: 0.9rem;
   color: var(--colorprimario);
-  /* TODO: fix search color */
+}
+
+::placeholder {
+  color: var(--colorprimario);
+  opacity: 0.7;
 }
 
 aside nav ul {
@@ -115,8 +119,6 @@ section div article img {
     padding-left: 5.5rem;
   }
 }
-
-/* TODO: fix layout for smartphones */
 
 @media (max-width: 700px) {
   .layout {
