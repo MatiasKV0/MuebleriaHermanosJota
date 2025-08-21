@@ -1,0 +1,156 @@
+main {
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  align-items: start;
+}
+
+aside {
+  align-self: start;
+  padding-top: 5.5rem;
+}
+
+aside form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+aside input[type="search"] {
+  width: 100%;
+  border: none;
+  border-bottom: var(--colorprimario) 2px solid;
+  background: transparent;
+  font-size: 0.9rem;
+  color: var(--colorprimario);
+}
+
+::placeholder {
+  color: var(--colorprimario);
+  opacity: 0.7;
+}
+
+aside nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+aside nav li {
+  font-size: 0.8rem;
+  font: "Inter", sans-serif;
+  letter-spacing: 0.08em;
+  color: var(--colorprimario);
+  cursor: pointer;
+  width: fit-content;
+}
+
+section div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: center;
+  margin-top: 0;
+}
+section div h1 {
+  font-family: "Playfair Display", Georgia;
+  font-size: clamp(2rem, 4rem, 3rem);
+  color: var(--colorprimario);
+  grid-column: 1 / span 2;
+  margin-bottom: 1.5rem;
+}
+
+section div a {
+  border: 2px var(--colorprimario) solid;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  width: 340px;
+  height: 340px;
+  box-sizing: border-box;
+}
+
+section div a img {
+  max-block-size: 80%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+@media (max-width: 1200px) {
+  .layout {
+    grid-template-columns: 180px 1fr;
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  section div {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  section div h1 {
+    grid-column: 1;
+    text-align: center;
+  }
+
+  section div a {
+    width: 90vw;
+    max-width: 340px;
+    height: 300px;
+  }
+
+  aside {
+    min-width: 140px;
+    padding-top: 5rem;
+    padding-left: 5.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .layout {
+    display: block;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  aside {
+    min-width: unset;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-left: 0;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+  }
+
+  section div {
+    display: block;
+    margin-top: 0;
+  }
+
+  section div h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  section div a {
+    width: 90vw;
+    max-width: 320px;
+    height: 220px;
+    margin: 0 auto 1rem auto;
+  }
+}
