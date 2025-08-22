@@ -12,7 +12,6 @@
   --colordetallesrosa: #C47A6D;
 }
 
-
 main{
   background-color: var(--colorfondo);
   min-height: 70vh;
@@ -20,6 +19,9 @@ main{
 
 h1{
   font-family: "Playfair Display", Georgia;
+  color: var(--colorprimario);
+  font-size: clamp(2rem, 4rem, 3rem);
+  margin-bottom: 1.5rem;
 }
 
 
