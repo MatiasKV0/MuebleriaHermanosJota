@@ -1,27 +1,29 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
 }
 
 :root {
-  --colorfondo: #F5E6D3;
-  --colorprimario: #A0522D;
-  --colorsecundario: #87A96B; 
-  --colordetallesoro: #D4A437;
-  --colordetallesrosa: #C47A6D;
+  --colorfondo: #f5e6d3;
+  --colorprimario: #a0522d;
+  --colorsecundario: #87a96b;
+  --colordetallesoro: #d4a437;
+  --colordetallesrosa: #c47a6d;
+  --blanco: #ffffff;
+  --gris-suave: #f8f8f8;
 }
 
-main{
+main {
   background-color: var(--colorfondo);
-  min-height: 70vh;
+}
+
+h1,h2,h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  color: var(--colorprimario);
+  margin-bottom: 1rem;
 }
 
 h1{
-  font-family: "Playfair Display", Georgia;
-  color: var(--colorprimario);
   font-size: clamp(2rem, 4rem, 3rem);
-  margin-bottom: 1.5rem;
 }
-
-
