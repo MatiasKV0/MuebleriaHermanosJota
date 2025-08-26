@@ -1,0 +1,51 @@
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+}
+label{
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--colorprimario);
+    padding: 3px;
+}
+
+textarea{
+    resize: none;
+}
+button {
+    font-family: "Inter", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--colorprimario);
+    padding: 8px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 1rem auto 0;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--colorprimario);
+    width: 30%;
+    background: var(--colorprimario);
+    color: var(--colorfondo);
+}
+button:hover {
+  background: var(--colordetallesoro);
+  border-color: var(--colordetallesoro);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(212, 164, 55, 0.3);
+}
