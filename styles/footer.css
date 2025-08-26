@@ -2,16 +2,16 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--colorsecundario);
+  background-color: var(--blanco);
   padding: 30px 40px;
   gap: 30px;
-  color: #fff; 
+  color: var(--colorprimario); 
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 footer a {
   text-decoration: none;
-  color: #fff;
+  color: var(--colorprimario);
   transition: color 0.3s ease;
 }
 
