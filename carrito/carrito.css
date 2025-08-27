@@ -1,0 +1,85 @@
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 40px;
+}
+
+.container {
+    width: 800px;
+    height: auto;
+    max-width: 70%;
+    max-height: 80%;   
+    padding: 20px;
+    margin: auto;
+     
+}
+.cart-header {
+    display: flex;
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--colorprimario);
+    padding: 10px;
+    text-align: left;
+}
+.cart-items{
+    display: flex;
+    font-family: "Inter", system-ui, sans-serif;
+    padding: 10px 0;
+    align-items: center;
+}
+.cart-items img{
+    width: 50px;
+    height: 50px;
+
+}
+.cart-header > div, .cart-items > div {
+    flex: 1; 
+    text-align: center;
+} 
+.product-details {
+    display: flex;
+    align-items: center;
+    flex: 1; 
+    text-align: left; 
+}
+.cart-total{
+    display: flex;
+    padding: 10px 0;
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 15px ;
+}
+.cart-header > div, .cart-item > div, .cart-total > div {
+    flex: 1; 
+    text-align: center;
+}
+.buttons{
+    display: flex;
+    width: 800px;
+    height: auto;
+    max-width: 70%;
+    max-height: 80%;   
+    padding: 20px;
+    margin: auto;
+}
+
+.btn-secondary{
+    font-family: "Inter", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    color: var(--colorprimario);
+    padding: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 1rem auto 0;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--colorprimario);
+    background: var(--colorprimario);
+    color: var(--colorfondo);
+}
