@@ -30,20 +30,15 @@
     <main>
       <section class="producto-detalle">
         <div>
-          <h1>Un Producto</h1>
-          <img src="../public/img/SofaPatagonia.png" alt="ImagenProducto" />
-          <p>Descripcion del producto</p>
+          <h1 id="p-nombre">Producto</h1>
+          <img id="p-img" src="" alt="Imagen del producto" />
+          <p id="p-descripcion"></p>
+          <p id="p-precio"></p>
           <button id="carrito">Añadir al carrito</button>
         </div>
 
         <div>
-          <ul class="detalles">
-            <li>Material: Roble</li>
-            <li>Medidas: 180cm x 90cm x 75cm</li>
-            <li>Color: Negro</li>
-            <li>Caracteristica 4</li>
-            <li>Caracteristica 5</li>
-          </ul>
+          <ul id="p-detalles" class="detalles"></ul>
         </div>
       </section>
     </main>
@@ -92,6 +87,6 @@
         <p>© 2025 Hermanos Jota. Todos los derechos reservados.</p>
       </div>
     </footer>
-
+    <script src="producto.js" defer></script>
   </body>
 </html>
