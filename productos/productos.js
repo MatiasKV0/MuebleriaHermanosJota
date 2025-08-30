@@ -1,11 +1,10 @@
-// productos/productos.js
 function slugify(str) {
   return str
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // saca acentos
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-") // espacios y símbolos → -
-    .replace(/(^-|-$)/g, ""); // recorta guiones
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 }
 
 (async function () {
@@ -15,7 +14,6 @@ function slugify(str) {
   try {
     const resp = await fetch("../public/productos.json");
     const data = await resp.json();
-    // soporte para { productos: [...] } o [ ... ]
     const productos = Array.isArray(data) ? data : data.productos || [];
 
     if (!productos.length) {
@@ -23,7 +21,6 @@ function slugify(str) {
       return;
     }
 
-    // grilla básica
     grid.style.display = "grid";
     grid.style.gridTemplateColumns = "repeat(auto-fill, minmax(220px, 1fr))";
     grid.style.gap = "1rem";
@@ -32,13 +29,10 @@ function slugify(str) {
       const a = document.createElement("a");
       const slug = slugify(p.nombre);
 
-      // producto.html está en /home/producto  (desde /productos subo uno: ..)
       a.href = `/producto/producto.html?slug=${encodeURIComponent(slug)}`;
       a.style.display = "block";
 
       const img = document.createElement("img");
-      // tu JSON trae "imagen": "public/img/Archivo.png"
-      // desde /productos necesito anteponer ../
       img.src = `../${p.imagen}`;
       img.alt = p.nombre;
       img.loading = "lazy";
