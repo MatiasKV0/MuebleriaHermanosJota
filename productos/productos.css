@@ -55,68 +55,54 @@ aside nav li {
   width: fit-content;
 }
 
-section div {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  justify-items: center;
-  align-items: center;
+section > div {
+  display: block !important;
   margin-top: 0;
 }
-section div h1 {
+
+section > div h1 {
   font-family: "Playfair Display", Georgia;
   font-size: clamp(2rem, 4rem, 3rem);
   color: var(--colorprimario);
-  grid-column: 1 / span 2;
+  text-align: center;
   margin-bottom: 1.5rem;
 }
 
-section div a {
+.layout section #grid {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr !important;
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.layout section #grid a {
   border: 2px var(--colorprimario) solid;
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   aspect-ratio: 1 / 1;
-  width: 340px;
-  height: 340px;
+  width: 100%;
+  max-width: 340px;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
-section div a img {
+.layout section #grid a p {
+  display: none;
+}
+
+.layout section #grid a img {
   max-block-size: 80%;
   object-fit: contain;
   display: block;
   margin: auto;
 }
 
-@media (max-width: 1200px) {
-  .layout {
-    grid-template-columns: 180px 1fr;
-    max-width: 100%;
-    gap: 1rem;
-  }
-
-  section div {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  section div h1 {
-    grid-column: 1;
-    text-align: center;
-  }
-
-  section div a {
-    width: 90vw;
-    max-width: 340px;
-    height: 300px;
-  }
-
-  aside {
-    min-width: 140px;
-    padding-top: 5rem;
-    padding-left: 5.5rem;
+@media (min-width: 1200px) {
+  .layout section #grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
 
@@ -137,20 +123,7 @@ section div a img {
     box-sizing: border-box;
   }
 
-  section div {
-    display: block;
-    margin-top: 0;
-  }
-
-  section div h1 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  section div a {
-    width: 90vw;
+  .layout section #grid a {
     max-width: 320px;
-    height: 220px;
-    margin: 0 auto 1rem auto;
   }
 }
