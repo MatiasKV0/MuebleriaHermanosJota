@@ -1,0 +1,107 @@
+.producto {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+@media (min-width: 992px) {
+  .producto {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+}
+
+.producto__media {
+  width: 100%;
+}
+
+.producto__figure {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--colorprimario);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.producto__figure img {
+  width: min(90%, 720px);
+  height: 90%;
+  object-fit: contain;
+  display: block;
+}
+
+.producto__titulo {
+  font-family: "Playfair Display", Georgia, serif;
+  color: var(--colorprimario);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 0 0 0.25rem;
+}
+
+.producto__precio {
+  color: var(--colorprimario);
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.producto__panel {
+  border: 2px solid var(--colorprimario);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.producto__subtitulo {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: var(--colorprimario);
+}
+
+.producto__descripcion {
+  line-height: 1.6;
+}
+
+.atributos {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+  margin: 0;
+}
+
+.atributos dt {
+  font-weight: 600;
+  color: var(--colorprimario);
+}
+
+.atributos dd {
+  margin: 0;
+}
+
+.btn {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--colorsecundario);
+  background: var(--colorsecundario);
+  color: var(--negro);
+  cursor: pointer;
+  transition: transform 0.04s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.92;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

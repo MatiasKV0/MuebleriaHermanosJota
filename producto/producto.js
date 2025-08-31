@@ -13,57 +13,47 @@ function slugify(str) {
 (async function () {
   const slug = qs("slug");
 
-  const nombreEl = document.getElementById("p-nombre");
-  const imgEl = document.getElementById("p-img");
-  const descEl = document.getElementById("p-descripcion");
-  const precioEl = document.getElementById("p-precio");
-  const detallesEl = document.getElementById("p-detalles");
+  const nombre = document.getElementById("p-nombre");
+  const img = document.getElementById("p-img");
+  const desc = document.getElementById("p-descripcion");
+  const precio = document.getElementById("p-precio");
+  const attrs = document.getElementById("p-atributos");
   const btnCarrito = document.getElementById("carrito");
 
   if (!slug) {
-    nombreEl.textContent = "Producto no especificado";
+    nombre.textContent = "Producto no especificado";
     return;
   }
 
   try {
-    const resp = await fetch("../../public/productos.json");
+    const resp = await fetch("/public/productos.json");
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const data = await resp.json();
     const productos = Array.isArray(data) ? data : data.productos || [];
 
     const p = productos.find((x) => slugify(x.nombre) === slug);
-
     if (!p) {
-      nombreEl.textContent = "Producto no encontrado";
+      nombre.textContent = "Producto no encontrado";
       return;
     }
 
     document.title = `${p.nombre} — Hermanos Jota`;
-    nombreEl.textContent = p.nombre;
+    nombre.textContent = p.nombre;
 
-    imgEl.src = `../../${p.imagen}`;
-    imgEl.alt = p.nombre;
+    img.src = `/${p.imagen}`;
+    img.alt = p.nombre;
 
-    descEl.textContent = p.descripcion;
+    desc.textContent = p.descripcion || "";
 
-    if (typeof p.precio === "number") {
-      precioEl.textContent = new Intl.NumberFormat("es-AR", {
-        style: "currency",
-        currency: "ARS",
-        maximumFractionDigits: 0,
-      }).format(p.precio);
-    } else {
-      precioEl.textContent = "";
-    }
-
-    detallesEl.innerHTML = "";
+    attrs.innerHTML = "";
     if (p.atributos && typeof p.atributos === "object") {
       Object.entries(p.atributos).forEach(([k, v]) => {
-        const li = document.createElement("li");
-        li.textContent = `${(k[0].toUpperCase() + k.slice(1)).replace(
-          /_/g,
-          " "
-        )}: ${v}`;
-        detallesEl.appendChild(li);
+        const dt = document.createElement("dt");
+        dt.textContent = (k[0].toUpperCase() + k.slice(1)).replace(/_/g, " ");
+        const dd = document.createElement("dd");
+        dd.textContent = v;
+        attrs.appendChild(dt);
+        attrs.appendChild(dd);
       });
     }
 
@@ -71,11 +61,11 @@ function slugify(str) {
       const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
       carrito.push({ slug, nombre: p.nombre, qty: 1 });
       localStorage.setItem("carrito", JSON.stringify(carrito));
-      btnCarrito.textContent = "Agregado ✔";
+      btnCarrito.textContent = "Agregado";
       btnCarrito.disabled = true;
     });
   } catch (e) {
-    nombreEl.textContent = "Error cargando el producto";
-    console.error(e);
+    console.error("Error cargando producto:", e);
+    nombre.textContent = "Error cargando el producto";
   }
 })();

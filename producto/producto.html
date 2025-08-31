@@ -28,17 +28,25 @@
     </header>
 
     <main>
-      <section class="producto-detalle">
-        <div>
-          <h1 id="p-nombre">Producto</h1>
-          <img id="p-img" src="" alt="Imagen del producto" />
-          <p id="p-descripcion"></p>
-          <p id="p-precio"></p>
-          <button id="carrito">Añadir al carrito</button>
+      <section class="producto">
+        <div class="producto__media">
+          <figure class="producto__figure">
+            <img id="p-img" src="" alt="Imagen del producto" />
+          </figure>
         </div>
 
-        <div>
-          <ul id="p-detalles" class="detalles"></ul>
+        <div class="producto__info">
+          <h1 id="p-nombre" class="producto__titulo"></h1>
+          <p id="p-precio" class="producto__precio"></p>
+          <div class="producto__panel">
+            <dl id="p-atributos" class="atributos"></dl>
+          </div>
+          <div class="producto__panel">
+            <p id="p-descripcion" class="producto__descripcion"></p>
+          </div>
+          <button id="carrito" class="btn btn--primario">
+            Añadir al carrito
+          </button>
         </div>
       </section>
     </main>
