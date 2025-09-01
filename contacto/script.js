@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (!nombreRegex.test(valor)) {
-            mostrarError(nombreInput, nombreError, 'El nombre debe tener entre 2 y 50 caracteres y solo puede contener letras y espacios');
+            mostrarError(nombreInput, nombreError, 'Por favor, ingrese un nombre válido (solo letras y espacios, entre 2 y 50 caracteres)');
             return false;
         }
         
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
         
-        if (valor.length > 200) {
-            mostrarError(mensajeInput, mensajeError, 'El mensaje no puede exceder los 200 caracteres');
+        if (valor.length > 500) {
+            mostrarError(mensajeInput, mensajeError, 'El mensaje no puede exceder los 500 caracteres');
             return false;
         }
         
