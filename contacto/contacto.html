@@ -35,21 +35,24 @@
       </p>
       <section id="contact-section">
         <div class="contact-form-container">
-          <form action="" method="">
+          <form id="contactForm" action="" method="" novalidate>
             <label for="NombreUsuario">Nombre:</label>
-            <input type="text" id="NombreUsuario"  />
-            <span class="Error"> </span>
+            <input type="text" id="NombreUsuario" name="nombre" />
+            <span id="nombreError" class="error-message"></span>
 
             <label for="EmailUsuario">Email:</label>
-            <input type="email" id="EmailUsuario"  />
-            <span class="Error"> </span>
+            <input type="email" id="EmailUsuario" name="email" />
+            <span id="emailError" class="error-message"></span>
 
-            <label for="Mensaje">Mensaje:</label>
-            <textarea id="MensajeUsuario" rows="5" ></textarea>
-            <span class="Error"> </span>
+            <label for="MensajeUsuario">Mensaje:</label>
+            <textarea id="MensajeUsuario" name="mensaje" rows="5"></textarea>
+            <span id="mensajeError" class="error-message"></span>
 
             <button type="submit">Enviar Mensaje</button>
           </form>
+          <div id="successMessage" class="success-message">
+            ¡Mensaje enviado con éxito! <br> Pronto nos pondremos en contacto contigo.
+          </div>
         </div>
 
         <div class="contact-info-container">
