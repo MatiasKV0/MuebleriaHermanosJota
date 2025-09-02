@@ -18,6 +18,10 @@ main {
   background-color: var(--colorfondo);
 }
 
+body{
+  background-color: var(--colorfondo);
+}
+
 h1,h2,h3 {
   font-family: "Playfair Display", Georgia, serif;
   color: var(--colorprimario);
@@ -26,4 +30,8 @@ h1,h2,h3 {
 
 h1{
   font-size: clamp(2rem, 4rem, 3rem);
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(160, 82, 45, 0.1);
+  letter-spacing: 0.1em;
 }
