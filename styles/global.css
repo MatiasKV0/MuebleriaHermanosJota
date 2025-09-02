@@ -35,3 +35,9 @@ h1{
   text-shadow: 0 2px 4px rgba(160, 82, 45, 0.1);
   letter-spacing: 0.1em;
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
