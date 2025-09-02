@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../styles/footer.css" />
     <link rel="stylesheet" href="carrito.css" />
   </head>
+
   <body>
     <header>
       <a href="../home/index.html"
@@ -28,46 +29,103 @@
     </header>
 
     <main>
-      <h1>Carrito</h1>
-      <div class="container">
-        <div class="cart-header">
-          <div>Producto</div> 
-          <div>Precio</div>
-          <div>Cantidad</div>
-          <div>Subtotal</div>
-        </div>
+      <h1>Tu Carrito</h1>
+      <p class="cart-intro">
+        Cada pieza seleccionada es una inversión en la belleza y funcionalidad
+        de tu hogar
+      </p>
 
-        <div class="cart-items">
-          <div class="product-details">
-            <img src="../public/img/SillasCordoba.png">
-            <span>Silla Córdoba</span>
-        </div>
-        <div>$20.000</div>
-        <div>2</div>
-        <div>$40.000</div>
-        </div>
+      <section class="cart-container">
+        <div class="cart-items" id="cart-items">
+          <div class="cart-item" data-id="1">
+            <img
+              src="/public/img/AparadorUspallata.png"
+              alt="Aparador Uspallata"
+              class="item-image"
+            />
+            <a class="item-details" href="../producto/producto.html">
+              <h3 class="item-name">Aparador Uspallata</h3>
+              <p class="item-description">
+                Aparador artesanal en madera de algarrobo con acabado natural en
+                aceite de lino. Diseño atemporal que combina funcionalidad y
+                elegancia, perfecto para el comedor o living.
+              </p>
+            </a>
+            <div class="item-actions">
+              <div class="quantity-controls">
+                <button class="quantity-btn">-</button>
+                <div>1</div>
+                <button class="quantity-btn">+</button>
+              </div>
+              <button class="remove-btn">Eliminar</button>
+            </div>
+          </div>
 
-        <div class="cart-items">
-        <div class="product-details">
-            <img src="../public/img/EscritorioCosta.png">
-            <span>Escritorio Costa</span>
-        </div>
-        <div>$35.000</div>
-        <div>1</div>
-        <div>$35.000</div>
-        </div>
+          <div class="cart-summary">
+            <h3>¿Listo para el siguiente paso?</h3>
+            <p>
+              Contactanos para recibir una cotización personalizada y coordinar
+              los detalles de tu pedido
+            </p>
+            <button class="checkout">Solicitar Cotización</button>
+          </div>
 
-        <div class="cart-total">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div>Total: $75.000</div> 
+          <div>
+            <p class="empty-cart">
+              Tu carrito está vacío. Explora nuestros productos y agrega tus
+              favoritos.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="buttons">
-        <a href="../productos/productos.html" class="btn-secondary">Seguir explorando</a>
-        <a type="submit" class="btn-secondary">Ir a pagar</a>
-    </div>
+      </section>
+
+      <section class="more-products">
+        <h2>También te puede interesar</h2>
+        <div class="products-container">
+          <a class="product-card" href="../producto/producto.html">
+            <img
+              src="/public/img/AparadorUspallata.png"
+              alt="Aparador Uspallata"
+              class="product-image"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Aparador Uspallata</h3>
+              <p class="product-description">
+                Aparador de madera maciza con acabado natural. Diseño rústico y
+                funcional, ideal para almacenar vajilla y utensilios.
+              </p>
+            </div>
+          </a>
+          <a class="product-card" href="../producto/producto.html">
+            <img
+              src="/public/img/AparadorUspallata.png"
+              alt="Aparador Uspallata"
+              class="product-image"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Aparador Uspallata</h3>
+              <p class="product-description">
+                Aparador de madera maciza con acabado natural. Diseño rústico y
+                funcional, ideal para almacenar vajilla y utensilios.
+              </p>
+            </div>
+          </a>
+          <a class="product-card" href="../producto/producto.html">
+            <img
+              src="/public/img/AparadorUspallata.png"
+              alt="Aparador Uspallata"
+              class="product-image"
+            />
+            <div class="product-info">
+              <h3 class="product-name">Aparador Uspallata</h3>
+              <p class="product-description">
+                Aparador de madera maciza con acabado natural. Diseño rústico y
+                funcional, ideal para almacenar vajilla y utensilios.
+              </p>
+            </div>
+          </a>
+        </div>
+      </section>
     </main>
 
     <footer>
