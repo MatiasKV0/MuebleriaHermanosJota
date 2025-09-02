@@ -29,7 +29,7 @@ function slugify(str) {
       const a = document.createElement("a");
       const slug = slugify(p.nombre);
 
-      a.href = `/producto/producto.html?slug=${encodeURIComponent(slug)}`;
+      a.href = `../producto/producto.html?slug=${encodeURIComponent(slug)}`;
       a.style.display = "block";
 
       const img = document.createElement("img");

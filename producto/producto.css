@@ -86,10 +86,11 @@
 .btn {
   display: inline-block;
   border-radius: 999px;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 2rem;
   border: 2px solid var(--colorsecundario);
   background: var(--colorsecundario);
-  color: var(--negro);
+  color: var(--blanco);
+  font-weight: 600;
   cursor: pointer;
   transition: transform 0.04s ease, opacity 0.2s ease;
 }

@@ -60,14 +60,6 @@ section > div {
   margin-top: 0;
 }
 
-section > div h1 {
-  font-family: "Playfair Display", Georgia;
-  font-size: clamp(2rem, 4rem, 3rem);
-  color: var(--colorprimario);
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
 .layout section #grid {
   display: grid;
   grid-auto-flow: row;
@@ -126,4 +118,5 @@ section > div h1 {
   .layout section #grid a {
     max-width: 320px;
   }
+
 }
