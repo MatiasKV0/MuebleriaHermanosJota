@@ -3,7 +3,11 @@ const path = window.location.pathname;
 let productos = [];
 
 document.addEventListener("DOMContentLoaded", async () => {
-  if (path.includes("index.html") || path === "/") {
+  if (
+    path.includes("index.html") ||
+    path == "/MuebleriaHermanosJota/" ||
+    path == "/"
+  ) {
     productos = await buscarProductos();
     mostrarSugerencias(destacadosContainer);
     mostrarTotalCarrito();
