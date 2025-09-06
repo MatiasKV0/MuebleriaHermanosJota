@@ -22,7 +22,8 @@
           <li><a href="../contacto/contacto.html">Contacto</a></li>
         </ul>
       </nav>
-      <a href="../carrito/carrito.html">
+      <a href="../carrito/carrito.html" id="carrito-icon">
+        <span id="carrito-total"></span>
         <img src="../public/img/cart.svg" alt="Carrito de Compras" />
       </a>
     </header>
@@ -46,7 +47,7 @@
         <section>
           <div>
             <h1>Productos</h1>
-            <div id="grid"></div>
+            <div id="container"></div>
           </div>
         </section>
       </div>
@@ -96,6 +97,6 @@
         <p>© 2025 Hermanos Jota. Todos los derechos reservados.</p>
       </div>
     </footer>
-    <script src="productos.js" defer></script>
+    <script type="module" src="productos.js" defer></script>
   </body>
 </html>

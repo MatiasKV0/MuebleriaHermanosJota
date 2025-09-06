@@ -277,6 +277,7 @@ blockquote p {
   font-size: 1.1rem;
   color: var(--colorprimario);
   margin-bottom: 1rem;
+  max-width: 750px;
 }
 
 blockquote cite {
@@ -299,7 +300,7 @@ blockquote::before {
 }
 
 /* Responsivo */
-@media (max-width: 768px) {
+@media (max-width: 932px) {
   .hero {
     flex-direction: column;
     text-align: center;

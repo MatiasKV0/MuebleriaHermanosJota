@@ -37,37 +37,16 @@
 
       <section class="cart-container">
         <div class="cart-items" id="cart-items">
-          <div class="cart-item" data-id="1">
-            <img
-              src="/public/img/AparadorUspallata.png"
-              alt="Aparador Uspallata"
-              class="item-image"
-            />
-            <a class="item-details" href="../producto/producto.html">
-              <h3 class="item-name">Aparador Uspallata</h3>
-              <p class="item-description">
-                Aparador artesanal en madera de algarrobo con acabado natural en
-                aceite de lino. Diseño atemporal que combina funcionalidad y
-                elegancia, perfecto para el comedor o living.
-              </p>
-            </a>
-            <div class="item-actions">
-              <div class="quantity-controls">
-                <button class="quantity-btn">-</button>
-                <div>1</div>
-                <button class="quantity-btn">+</button>
-              </div>
-              <button class="remove-btn">Eliminar</button>
-            </div>
-          </div>
+          <!-- Aquí se agregarán los productos del carrito dinámicamente -->
+        </div>
 
-          <div class="cart-summary">
+          <div class="cart-summary none">
             <h3>¿Listo para el siguiente paso?</h3>
             <p>
               Contactanos para recibir una cotización personalizada y coordinar
               los detalles de tu pedido
             </p>
-            <button class="checkout">Solicitar Cotización</button>
+            <button class="checkout" id="cotizar" onclick="cotizarProductos()">Solicitar Cotización</button>
           </div>
 
           <div>
@@ -76,54 +55,14 @@
               favoritos.
             </p>
           </div>
-        </div>
+        
       </section>
 
       <section class="more-products">
         <h2>También te puede interesar</h2>
-        <div class="products-container">
-          <a class="product-card" href="../producto/producto.html">
-            <img
-              src="/public/img/AparadorUspallata.png"
-              alt="Aparador Uspallata"
-              class="product-image"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Aparador Uspallata</h3>
-              <p class="product-description">
-                Aparador de madera maciza con acabado natural. Diseño rústico y
-                funcional, ideal para almacenar vajilla y utensilios.
-              </p>
-            </div>
-          </a>
-          <a class="product-card" href="../producto/producto.html">
-            <img
-              src="/public/img/AparadorUspallata.png"
-              alt="Aparador Uspallata"
-              class="product-image"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Aparador Uspallata</h3>
-              <p class="product-description">
-                Aparador de madera maciza con acabado natural. Diseño rústico y
-                funcional, ideal para almacenar vajilla y utensilios.
-              </p>
-            </div>
-          </a>
-          <a class="product-card" href="../producto/producto.html">
-            <img
-              src="/public/img/AparadorUspallata.png"
-              alt="Aparador Uspallata"
-              class="product-image"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Aparador Uspallata</h3>
-              <p class="product-description">
-                Aparador de madera maciza con acabado natural. Diseño rústico y
-                funcional, ideal para almacenar vajilla y utensilios.
-              </p>
-            </div>
-          </a>
+        <div class="products-container" id="products-container">
+          <!-- Aquí se agregarán los productos sugeridos dinámicamente -->
+          <p>Error al cargar los productos.</p>
         </div>
       </section>
     </main>
@@ -172,6 +111,6 @@
         <p>© 2025 Hermanos Jota. Todos los derechos reservados.</p>
       </div>
     </footer>
-
+    <script type="module" src="carrito.js"></script>
   </body>
 </html>
