@@ -3,8 +3,8 @@ const path = window.location.pathname;
 let productos = [];
 
 document.addEventListener("DOMContentLoaded", async () => {
-  if (path.includes("index.html")) {
-    await buscarProductos();
+  if (path.includes("index.html") || path === "/") {
+    productos = await buscarProductos();
     mostrarSugerencias(destacadosContainer);
     mostrarTotalCarrito();
   }
@@ -14,8 +14,7 @@ async function buscarProductos() {
   try {
     const response = await fetch("public/productos.json");
     const data = await response.json();
-    productos = data.productos;
-    return productos;
+    return data.productos;
   } catch (error) {
     console.error("Error cargando productos:", error);
     return [];

@@ -2,6 +2,11 @@ import { slugify, mostrarTotalCarrito } from "../script.js";
 
 const cantidadInput = document.getElementById("cantidad");
 const btnCarrito = document.getElementById("carrito");
+const nombre = document.getElementById("p-nombre");
+const img = document.getElementById("p-img");
+const desc = document.getElementById("p-descripcion");
+const attrs = document.getElementById("p-atributos");
+const price = document.getElementById("p-price");
 
 document.addEventListener("DOMContentLoaded", () => {
   initProducto();
@@ -44,14 +49,9 @@ function findProducto(productos, slug) {
 
 // Renderizar información del producto
 function renderProducto(p) {
-  const nombre = document.getElementById("p-nombre");
-  const img = document.getElementById("p-img");
-  const desc = document.getElementById("p-descripcion");
-  const attrs = document.getElementById("p-atributos");
-  const price = document.getElementById("p-price");
-
   document.title = `${p.nombre} — Hermanos Jota`;
   nombre.textContent = p.nombre;
+  price.textContent = `$${p.precio}`;
   img.src = `../${p.imagen}`;
   img.alt = p.nombre;
   desc.textContent = p.descripcion || "";
