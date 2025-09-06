@@ -60,23 +60,29 @@ function mostrarCarrito(carrito) {
 
     const slug = slugify(item.nombre);
 
-    div.innerHTML = `
-      <img src="../${item.imagen}" alt="${item.nombre}" class="item-image"/>
-      <a class="item-details" href="../producto/producto.html?slug=${encodeURIComponent(
-        slug
-      )}">
-        <h3 class="item-name">${item.nombre}</h3>
-        <p class="item-description">${item.descripcion}</p>
-      </a>
-      <div class="item-actions">
-        <div class="quantity-controls">
-          <button class="quantity-btn minus">-</button>
-          <div>${item.qty}</div>
-          <button class="quantity-btn plus">+</button>
-        </div>
-        <button class="remove-btn">Eliminar</button>
-      </div>
-    `;
+const precioTotal = item.precio * item.qty;
+
+div.innerHTML = `
+  <img src="../${item.imagen}" alt="${item.nombre}" class="item-image"/>
+  <a class="item-details" href="../producto/producto.html?slug=${encodeURIComponent(
+    slug
+  )}">
+    <h3 class="item-name">${item.nombre}</h3>
+    <p class="item-description">${item.descripcion}</p>
+  </a>
+  <div class="item-price">
+    <p class="price-unit">$${item.precio.toLocaleString()} c/u</p>
+    <p class="price-total">$${precioTotal.toLocaleString()}</p>
+  </div>
+  <div class="item-actions">
+    <div class="quantity-controls">
+      <button class="quantity-btn minus">-</button>
+      <div>${item.qty}</div>
+      <button class="quantity-btn plus">+</button>
+    </div>
+    <button class="remove-btn">Eliminar</button>
+  </div>
+`;
 
     // eventos
     div
@@ -97,11 +103,12 @@ function mostrarCarrito(carrito) {
 function cambiarCantidad(id, delta) {
   const item = carrito.find((p) => p.id === id);
   if (item) {
+    const precioItem = item.precio || 0;
     item.qty += delta;
-    total += delta;
+    total += delta * precioItem;
     if (item.qty < 1) {
       item.qty = 1;
-      total -= delta;
+      total -= delta * precioItem;
     }
     localStorage.setItem("total", JSON.stringify(total));
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -113,7 +120,10 @@ function cambiarCantidad(id, delta) {
 
 // Eliminar un producto del carrito
 function eliminarDelCarrito(id) {
-  total -= carrito.find((p) => p.id === id)?.qty || 0;
+  const item = carrito.find((p) => p.id === id);
+  if (item) {
+    total -= (item.precio || 0) * item.qty;
+  }
   carrito = carrito.filter((p) => p.id !== id);
   localStorage.setItem("total", JSON.stringify(total));
   localStorage.setItem("carrito", JSON.stringify(carrito));
