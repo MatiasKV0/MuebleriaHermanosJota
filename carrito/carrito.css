@@ -46,6 +46,11 @@ main {
   gap: 2rem;
 }
 
+.cart-items h2 {
+  text-align: center;
+  margin: 5rem;
+}
+
 .cart-item {
   display: flex;
   align-items: center;
@@ -265,6 +270,9 @@ main {
   font-size: 0.95rem;
   line-height: 1.5;
   flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Empty cart message */

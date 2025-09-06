@@ -5,7 +5,7 @@ fetch('public/productos.json')
 
     data.productos.slice(0,3).forEach(producto => {
         const link = document.createElement('a');
-        link.href = '#';
+        link.href = 'producto/producto.html?slug=' + encodeURIComponent(slugify(producto.nombre));
 
         const img = document.createElement('img');
 
@@ -17,3 +17,13 @@ fetch('public/productos.json')
     });
     })
     .catch(error => console.error('Error cargando productos:', error));
+
+    
+function slugify(str) {
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}

@@ -37,29 +37,8 @@
 
       <section class="cart-container">
         <div class="cart-items" id="cart-items">
-          <div class="cart-item" data-id="1">
-            <img
-              src="/public/img/AparadorUspallata.png"
-              alt="Aparador Uspallata"
-              class="item-image"
-            />
-            <a class="item-details" href="../producto/producto.html">
-              <h3 class="item-name">Aparador Uspallata</h3>
-              <p class="item-description">
-                Aparador artesanal en madera de algarrobo con acabado natural en
-                aceite de lino. Diseño atemporal que combina funcionalidad y
-                elegancia, perfecto para el comedor o living.
-              </p>
-            </a>
-            <div class="item-actions">
-              <div class="quantity-controls">
-                <button class="quantity-btn">-</button>
-                <div>1</div>
-                <button class="quantity-btn">+</button>
-              </div>
-              <button class="remove-btn">Eliminar</button>
-            </div>
-          </div>
+          <!-- Aquí se agregarán los productos del carrito dinámicamente -->
+        </div>
 
           <div class="cart-summary">
             <h3>¿Listo para el siguiente paso?</h3>
@@ -76,40 +55,12 @@
               favoritos.
             </p>
           </div>
-        </div>
+        
       </section>
 
       <section class="more-products">
         <h2>También te puede interesar</h2>
-        <div class="products-container">
-          <a class="product-card" href="../producto/producto.html">
-            <img
-              src="/public/img/AparadorUspallata.png"
-              alt="Aparador Uspallata"
-              class="product-image"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Aparador Uspallata</h3>
-              <p class="product-description">
-                Aparador de madera maciza con acabado natural. Diseño rústico y
-                funcional, ideal para almacenar vajilla y utensilios.
-              </p>
-            </div>
-          </a>
-          <a class="product-card" href="../producto/producto.html">
-            <img
-              src="/public/img/AparadorUspallata.png"
-              alt="Aparador Uspallata"
-              class="product-image"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Aparador Uspallata</h3>
-              <p class="product-description">
-                Aparador de madera maciza con acabado natural. Diseño rústico y
-                funcional, ideal para almacenar vajilla y utensilios.
-              </p>
-            </div>
-          </a>
+        <div class="products-container" id="products-container">
           <a class="product-card" href="../producto/producto.html">
             <img
               src="/public/img/AparadorUspallata.png"
@@ -172,6 +123,6 @@
         <p>© 2025 Hermanos Jota. Todos los derechos reservados.</p>
       </div>
     </footer>
-
+    <script src="carrito.js"></script>
   </body>
 </html>
