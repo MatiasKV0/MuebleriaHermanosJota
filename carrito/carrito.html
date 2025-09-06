@@ -46,7 +46,7 @@
               Contactanos para recibir una cotización personalizada y coordinar
               los detalles de tu pedido
             </p>
-            <button class="checkout" onclick="cotizarProductos()">Solicitar Cotización</button>
+            <button class="checkout" id="cotizar" onclick="cotizarProductos()">Solicitar Cotización</button>
           </div>
 
           <div>
@@ -61,20 +61,8 @@
       <section class="more-products">
         <h2>También te puede interesar</h2>
         <div class="products-container" id="products-container">
-          <a class="product-card" href="../producto/producto.html">
-            <img
-              src="/public/img/AparadorUspallata.png"
-              alt="Aparador Uspallata"
-              class="product-image"
-            />
-            <div class="product-info">
-              <h3 class="product-name">Aparador Uspallata</h3>
-              <p class="product-description">
-                Aparador de madera maciza con acabado natural. Diseño rústico y
-                funcional, ideal para almacenar vajilla y utensilios.
-              </p>
-            </div>
-          </a>
+          <!-- Aquí se agregarán los productos sugeridos dinámicamente -->
+          <p>Error al cargar los productos.</p>
         </div>
       </section>
     </main>
@@ -123,6 +111,6 @@
         <p>© 2025 Hermanos Jota. Todos los derechos reservados.</p>
       </div>
     </footer>
-    <script src="carrito.js"></script>
+    <script type="module" src="carrito.js"></script>
   </body>
 </html>

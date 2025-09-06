@@ -30,12 +30,10 @@ main {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--colorprimario),
-    var(--colordetallesoro),
-    var(--colorsecundario)
-  );
+  background: linear-gradient(90deg,
+      var(--colorprimario),
+      var(--colordetallesoro),
+      var(--colorsecundario));
   border-radius: 12px 12px 0 0;
 }
 
@@ -159,11 +157,9 @@ main {
 
 /* Cart Summary */
 .cart-summary {
-  background: linear-gradient(
-    135deg,
-    var(--colorsecundario) 0%,
-    var(--colordetallesoro) 100%
-  );
+  background: linear-gradient(135deg,
+      var(--colorsecundario) 0%,
+      var(--colordetallesoro) 100%);
   color: var(--blanco);
   padding: 2rem;
   border-radius: 12px;
@@ -288,7 +284,7 @@ main {
   margin-bottom: 1rem;
 }
 
-.none{
+.none {
   display: none;
 }
 
@@ -329,9 +325,12 @@ main {
     min-width: unset;
   }
 
-  .cart-container,
-  .product-info {
+  .cart-container {
     padding: 1.5rem;
+  }
+
+  .product-info {
+    display: none;
   }
 
   .cart-summary button {

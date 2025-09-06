@@ -1,24 +1,17 @@
+import { slugify, mostrarTotalCarrito } from "../script.js";
+
 const cantidadInput = document.getElementById("cantidad");
 const btnCarrito = document.getElementById("carrito");
 
 document.addEventListener("DOMContentLoaded", () => {
   initProducto();
   document.addEventListener("input", inputControl);
+  mostrarTotalCarrito();
 });
 
 function qs(param) {
   return new URLSearchParams(location.search).get(param);
 }
-
-function slugify(str) {
-  return str
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
 
 function inputControl(e) {
   cantidadInput.addEventListener("input", () => {

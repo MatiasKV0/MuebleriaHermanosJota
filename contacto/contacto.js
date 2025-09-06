@@ -1,4 +1,7 @@
+import { mostrarTotalCarrito } from '../script.js';
+
 document.addEventListener('DOMContentLoaded', function() {
+    mostrarTotalCarrito();
     // obtencion de doms
     const form = document.getElementById('contactForm');
     const nombreInput = document.getElementById('NombreUsuario');

@@ -1,15 +1,12 @@
-function slugify(str) {
-  return str
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
+import { slugify, mostrarTotalCarrito } from "../script.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarTotalCarrito();
+});
 
 (async function () {
-  const grid = document.getElementById("grid");
-  if (!grid) return;
+  const contenedor = document.getElementById("container");
+  if (!contenedor) return;
 
   try {
     const resp = await fetch("../public/productos.json");
@@ -17,13 +14,14 @@ function slugify(str) {
     const productos = Array.isArray(data) ? data : data.productos || [];
 
     if (!productos.length) {
-      grid.innerHTML = "<p>No hay productos para mostrar.</p>";
+      contenedor.innerHTML = "<p>No hay productos para mostrar.</p>";
       return;
     }
 
-    grid.style.display = "grid";
-    grid.style.gridTemplateColumns = "repeat(auto-fill, minmax(220px, 1fr))";
-    grid.style.gap = "1rem";
+    contenedor.style.display = "flex";
+    contenedor.style.flexWrap = "wrap";
+    contenedor.style.gap = "1rem";
+    contenedor.style.justifyContent = "center";
 
     productos.forEach((p) => {
       const a = document.createElement("a");
@@ -45,10 +43,10 @@ function slugify(str) {
 
       a.appendChild(img);
       a.appendChild(caption);
-      grid.appendChild(a);
+      contenedor.appendChild(a);
     });
   } catch (e) {
-    grid.innerHTML = "<p>No se pudieron cargar los productos.</p>";
+    contenedor.innerHTML = "<p>No se pudieron cargar los productos.</p>";
     console.error(e);
   }
 })();
