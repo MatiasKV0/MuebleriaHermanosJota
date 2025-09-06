@@ -60,7 +60,7 @@ section > div {
 }
 
 .layout section {
-  flex: 1; 
+  flex: 1;
 }
 
 .layout section #container {
@@ -82,7 +82,7 @@ section > div {
   max-width: 400px;
   box-sizing: border-box;
   text-decoration: none;
-  flex: 1 1 300px; 
+  flex: 1 1 300px;
 }
 
 .layout section #container a img {
@@ -114,5 +114,4 @@ section > div {
   .layout section #container a {
     max-width: 320px;
   }
-
 }

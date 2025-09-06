@@ -28,7 +28,7 @@ async function cargarProductos() {
 }
 
 function filtrarProductos(productos) {
-    productos = carrito
+  productos = carrito
     .map((item) => {
       let producto = productos.find((p) => p.id === item.id);
       if (!producto) return null;
@@ -62,7 +62,9 @@ function mostrarCarrito(carrito) {
 
     div.innerHTML = `
       <img src="../${item.imagen}" alt="${item.nombre}" class="item-image"/>
-      <a class="item-details" href="../producto/producto.html?slug=${encodeURIComponent(slug)}">
+      <a class="item-details" href="../producto/producto.html?slug=${encodeURIComponent(
+        slug
+      )}">
         <h3 class="item-name">${item.nombre}</h3>
         <p class="item-description">${item.descripcion}</p>
       </a>
@@ -77,14 +79,19 @@ function mostrarCarrito(carrito) {
     `;
 
     // eventos
-    div.querySelector(".minus").addEventListener("click", () => cambiarCantidad(item.id, -1));
-    div.querySelector(".plus").addEventListener("click", () => cambiarCantidad(item.id, 1));
-    div.querySelector(".remove-btn").addEventListener("click", () => eliminarDelCarrito(item.id));
+    div
+      .querySelector(".minus")
+      .addEventListener("click", () => cambiarCantidad(item.id, -1));
+    div
+      .querySelector(".plus")
+      .addEventListener("click", () => cambiarCantidad(item.id, 1));
+    div
+      .querySelector(".remove-btn")
+      .addEventListener("click", () => eliminarDelCarrito(item.id));
 
     contenedorCarrito.appendChild(div);
   });
 }
-
 
 // Cambiar cantidad de un producto en el carrito
 function cambiarCantidad(id, delta) {

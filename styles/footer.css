@@ -5,8 +5,8 @@ footer {
   background-color: var(--blanco);
   padding: 30px 40px;
   gap: 30px;
-  color: var(--colorprimario); 
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+  color: var(--colorprimario);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 footer a {
@@ -15,7 +15,7 @@ footer a {
   transition: color 0.3s ease;
 }
 
-footer p{
+footer p {
   color: var(--colorprimario);
   text-align: center;
   font-size: 1rem;
@@ -41,7 +41,7 @@ footer > div:first-child {
 }
 
 footer > div:first-child > div {
-  flex: 1 1 200px; 
+  flex: 1 1 200px;
   min-width: 200px;
 }
 
@@ -69,4 +69,3 @@ footer > div:last-child {
   padding-top: 15px;
   color: rgba(255, 255, 255, 0.8);
 }
-
