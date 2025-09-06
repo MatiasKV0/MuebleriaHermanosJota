@@ -20,7 +20,7 @@ function inputControl(e) {
     let value = parseInt(cantidadInput.value);
 
     if (isNaN(value)) {
-      cantidadInput.value = min; 
+      cantidadInput.value = min;
     } else if (value < min) {
       cantidadInput.value = min;
     } else if (value > max) {
@@ -39,7 +39,7 @@ async function fetchProductos() {
 
 // Buscar producto por slug
 function findProducto(productos, slug) {
-  return productos.find(p => slugify(p.nombre) === slug);
+  return productos.find((p) => slugify(p.nombre) === slug);
 }
 
 // Renderizar información del producto
@@ -48,10 +48,11 @@ function renderProducto(p) {
   const img = document.getElementById("p-img");
   const desc = document.getElementById("p-descripcion");
   const attrs = document.getElementById("p-atributos");
+  const price = document.getElementById("p-price");
 
   document.title = `${p.nombre} — Hermanos Jota`;
   nombre.textContent = p.nombre;
-  img.src = `/${p.imagen}`;
+  img.src = `../${p.imagen}`;
   img.alt = p.nombre;
   desc.textContent = p.descripcion || "";
 
@@ -75,12 +76,12 @@ function setupCarritoButton(p) {
     let total = JSON.parse(localStorage.getItem("total") || 0);
     total += parseInt(cantidadInput.value);
     localStorage.setItem("total", JSON.stringify(total));
-    if( carrito.find(item => item.id === p.id)){
-      carrito.map(item => {
-        if(item.id === p.id) item.qty += parseInt(cantidadInput.value);
+    if (carrito.find((item) => item.id === p.id)) {
+      carrito.map((item) => {
+        if (item.id === p.id) item.qty += parseInt(cantidadInput.value);
       });
-    }else{
-      carrito.push({ id: p.id, qty: parseInt(cantidadInput.value)});
+    } else {
+      carrito.push({ id: p.id, qty: parseInt(cantidadInput.value) });
     }
     localStorage.setItem("carrito", JSON.stringify(carrito));
     btnCarrito.textContent = "Agregando...";
