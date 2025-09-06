@@ -28,6 +28,8 @@ async function cargarProductos() {
 }
 
 function filtrarProductos(productos) {
+  const precioTotal = calcularPrecioTotal(carrito, productos);
+  
   productos = carrito
     .map((item) => {
       let producto = productos.find((p) => p.id === item.id);
@@ -39,7 +41,7 @@ function filtrarProductos(productos) {
     })
     .filter(Boolean);
 
-  mostrarCarrito(productos);
+  mostrarCarrito(productos, precioTotal);
 }
 
 // Carrito de compras
@@ -158,18 +160,32 @@ function mostrarSugerencias() {
   });
 }
 
-//limpiar carrito
 function cotizarProductos() {
+  const precioTotal = calcularPrecioTotal(carrito, productos);
+  
+  // Limpiar el carrito
   carrito = [];
   localStorage.removeItem("carrito");
   localStorage.removeItem("total");
+  
   cotizacion[0].classList.add("none");
-  mostrarMensaje(
-    "Gracias por tu interés. Nos pondremos en contacto pronto para tu cotización."
-  );
+  
+  // Mostrar el precio total calculado
+  mostrarMensaje(`Total a pagar: $${precioTotal.toLocaleString()}, Gracias por su compra`);
 }
 
 //mostrar mensaje
 function mostrarMensaje(mensaje) {
   contenedorCarrito.innerHTML = `<h2>${mensaje}</h2>`;
+}
+
+function calcularPrecioTotal(carrito, productos) {
+  let precioTotal = 0;
+  carrito.forEach(item => {
+    const producto = productos.find(p => p.id === item.id);
+    if (producto && producto.precio) {
+      precioTotal += producto.precio * item.qty;
+    }
+  });
+  return precioTotal;
 }
