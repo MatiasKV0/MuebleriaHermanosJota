@@ -1,13 +1,15 @@
-// lista de productos
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let total = JSON.parse(localStorage.getItem("total")) || 0;
 const contenedorSugerencias = document.getElementById("products-container");
+const contenedorCarrito = document.getElementById("cart-items");
+const cotizacion = document.getElementsByClassName("cart-summary")
 let sugerencias = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   cargarProductos();
 });
 
-// Cargar productos desde JSON
+
 function cargarProductos() {
   fetch("../public/productos.json")
     .then((response) => response.json())
@@ -15,10 +17,9 @@ function cargarProductos() {
       let productos = data.productos || [];
       sugerencias = productos.slice(0, 3);
 
-      // merge carrito + datos de productos
       productos = carrito.map((item) => {
         let producto = data.productos.find((p) => p.id === item.id);
-        if (!producto) return null; // evitar error si falta producto
+        if (!producto) return null; 
         return {
           ...producto,
           qty: item.qty,
@@ -33,11 +34,14 @@ function cargarProductos() {
 
 // Carrito de compras
 function mostrarCarrito(carrito) {
-  const contenedorCarrito = document.getElementById("cart-items");
+  
   if (!carrito || carrito.length === 0) {
-    contenedorCarrito.innerHTML = "<h2>El carrito está vacío.</h2>";
+    mostrarMensaje("El carrito está vacío");
+    cotizacion[0].classList.add("none");
     return;
   }
+
+  cotizacion[0].classList.remove("none");
 
   contenedorCarrito.innerHTML = "";
   carrito.forEach((item) => {
@@ -75,7 +79,12 @@ function cambiarCantidad(id, delta) {
   const item = carrito.find((p) => p.id === id);
   if (item) {
     item.qty += delta;
-    if (item.qty < 1) item.qty = 1;
+    total += delta;
+    if (item.qty < 1) {
+      item.qty = 1;
+      total -= delta;
+    }
+    localStorage.setItem("total", JSON.stringify(total));
     localStorage.setItem("carrito", JSON.stringify(carrito));
     cargarProductos();
   } else {
@@ -85,7 +94,9 @@ function cambiarCantidad(id, delta) {
 
 // Eliminar un producto del carrito
 function eliminarDelCarrito(id) {
+  total -= carrito.find(p => p.id === id)?.qty || 0;
   carrito = carrito.filter((p) => p.id !== id);
+  localStorage.setItem("total", JSON.stringify(total));
   localStorage.setItem("carrito", JSON.stringify(carrito));
   cargarProductos();
 }
@@ -115,6 +126,19 @@ function mostrarSugerencias() {
     `;
     contenedorSugerencias.appendChild(div);
   });
+}
+
+//limpiar carrito
+function cotizarProductos() {
+  carrito = [];
+  localStorage.removeItem("carrito");
+  cotizacion[0].classList.add("none");
+  mostrarMensaje("Gracias por tu interés. Nos pondremos en contacto pronto para tu cotización.");
+}
+
+//mostrar mensaje
+function mostrarMensaje(mensaje) {
+  contenedorCarrito.innerHTML = `<h2>${mensaje}</h2>`;
 }
 
 function slugify(str) {

@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarTotalCarrito();
+});
+
 fetch('public/productos.json')
     .then(response => response.json())
     .then(data => {
@@ -18,6 +22,16 @@ fetch('public/productos.json')
     })
     .catch(error => console.error('Error cargando productos:', error));
 
+export function mostrarTotalCarrito() {
+    const totalCarrito = document.getElementById('total-carrito');
+    const total = JSON.parse(localStorage.getItem("total")) || 0;
+    if (total >= 100) {
+        totalCarrito.textContent = '+99';
+        totalCarrito.style.padding = '0px';
+        return;
+    }
+    totalCarrito.textContent = `${total}`;
+}
     
 function slugify(str) {
   return str

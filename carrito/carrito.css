@@ -288,6 +288,10 @@ main {
   margin-bottom: 1rem;
 }
 
+.none{
+  display: none;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   main {

@@ -79,6 +79,9 @@ function renderProducto(p) {
 function setupCarritoButton(p) {
   btnCarrito.addEventListener("click", () => {
     const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
+    let total = JSON.parse(localStorage.getItem("total") || 0);
+    total += parseInt(cantidadInput.value);
+    localStorage.setItem("total", JSON.stringify(total));
     if( carrito.find(item => item.id === p.id)){
       carrito.map(item => {
         if(item.id === p.id) item.qty += parseInt(cantidadInput.value);
