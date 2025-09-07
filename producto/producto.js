@@ -1,5 +1,6 @@
 import { slugify, mostrarTotalCarrito } from "../script.js";
 
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const cantidadInput = document.getElementById("cantidad");
 const btnCarrito = document.getElementById("carrito");
 const nombre = document.getElementById("p-nombre");
@@ -7,10 +8,12 @@ const img = document.getElementById("p-img");
 const desc = document.getElementById("p-descripcion");
 const attrs = document.getElementById("p-atributos");
 const price = document.getElementById("p-price");
+const available = document.getElementById("p-available");
+let restante = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   initProducto();
-  document.addEventListener("input", inputControl);
+  cantidadInput.addEventListener("input", inputControl);
   mostrarTotalCarrito();
 });
 
@@ -19,19 +22,16 @@ function qs(param) {
 }
 
 function inputControl(e) {
-  cantidadInput.addEventListener("input", () => {
-    const min = parseInt(cantidadInput.min);
-    const max = parseInt(cantidadInput.max);
-    let value = parseInt(cantidadInput.value);
+  const min = parseInt(cantidadInput.min);
+  let value = parseInt(cantidadInput.value);
 
-    if (isNaN(value)) {
-      cantidadInput.value = min;
-    } else if (value < min) {
-      cantidadInput.value = min;
-    } else if (value > max) {
-      cantidadInput.value = max;
-    }
-  });
+  if (isNaN(value)) {
+    cantidadInput.value = min;
+  } else if (value < min) {
+    cantidadInput.value = min;
+  } else if (value > restante) {
+    cantidadInput.value = restante;
+  }
 }
 
 // Cargar productos desde JSON
@@ -52,6 +52,22 @@ function renderProducto(p) {
   document.title = `${p.nombre} — Hermanos Jota`;
   nombre.textContent = p.nombre;
   price.textContent = `$${p.precio}`;
+
+  // Buscar si el producto ya está en el carrito
+  const productoEnCarrito = carrito.find(e => e.id === p.id);
+  const cantidadEnCarrito = productoEnCarrito ? productoEnCarrito.qty : 0;
+  restante = 99 - cantidadEnCarrito;
+
+  if (cantidadEnCarrito >= 99) {
+    available.textContent = "Stock no disponible";
+    available.style.color = "var(--colorprimario)";
+    btnCarrito.disabled = true;
+  } else {
+    available.textContent = `Stock disponible`;
+    available.style.color = ""; 
+    btnCarrito.disabled = false;
+  }
+
   img.src = `../${p.imagen}`;
   img.alt = p.nombre;
   desc.textContent = p.descripcion || "";
@@ -68,6 +84,7 @@ function renderProducto(p) {
     });
   }
 }
+
 
 // Configurar botón del carrito
 function setupCarritoButton(p) {

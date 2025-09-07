@@ -29,7 +29,7 @@ async function cargarProductos() {
 
 function filtrarProductos(productos) {
   const precioTotal = calcularPrecioTotal(carrito, productos);
-  
+
   productos = carrito
     .map((item) => {
       let producto = productos.find((p) => p.id === item.id);
@@ -62,13 +62,13 @@ function mostrarCarrito(carrito) {
 
     const slug = slugify(item.nombre);
 
-const precioTotal = item.precio * item.qty;
+    const precioTotal = item.precio * item.qty;
 
-div.innerHTML = `
+    div.innerHTML = `
   <img src="../${item.imagen}" alt="${item.nombre}" class="item-image"/>
   <a class="item-details" href="../producto/producto.html?slug=${encodeURIComponent(
-    slug
-  )}">
+      slug
+    )}">
     <h3 class="item-name">${item.nombre}</h3>
     <p class="item-description">${item.descripcion}</p>
   </a>
@@ -105,12 +105,15 @@ div.innerHTML = `
 function cambiarCantidad(id, delta) {
   const item = carrito.find((p) => p.id === id);
   if (item) {
-    const precioItem = item.precio || 0;
     item.qty += delta;
-    total += delta * precioItem;
+    total += delta;
     if (item.qty < 1) {
       item.qty = 1;
-      total -= delta * precioItem;
+      total -= delta;
+    }
+    if(item.qty > 99) {
+      item.qty = 99;
+      total -= delta;
     }
     localStorage.setItem("total", JSON.stringify(total));
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -122,10 +125,7 @@ function cambiarCantidad(id, delta) {
 
 // Eliminar un producto del carrito
 function eliminarDelCarrito(id) {
-  const item = carrito.find((p) => p.id === id);
-  if (item) {
-    total -= (item.precio || 0) * item.qty;
-  }
+  total -= carrito.find((p) => p.id === id)?.qty || 0;
   carrito = carrito.filter((p) => p.id !== id);
   localStorage.setItem("total", JSON.stringify(total));
   localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -162,16 +162,18 @@ function mostrarSugerencias() {
 
 function cotizarProductos() {
   const precioTotal = calcularPrecioTotal(carrito, productos);
-  
+
   // Limpiar el carrito
   carrito = [];
   localStorage.removeItem("carrito");
   localStorage.removeItem("total");
-  
+
   cotizacion[0].classList.add("none");
-  
+
   // Mostrar el precio total calculado
-  mostrarMensaje(`Total a pagar: $${precioTotal.toLocaleString()}, Gracias por su compra`);
+  mostrarMensaje(`Pago realizado con éxito. <br>
+Total abonado: $${precioTotal.toLocaleString()}. 
+¡Gracias por confiar en nosotros!`);
 }
 
 //mostrar mensaje
@@ -181,8 +183,8 @@ function mostrarMensaje(mensaje) {
 
 function calcularPrecioTotal(carrito, productos) {
   let precioTotal = 0;
-  carrito.forEach(item => {
-    const producto = productos.find(p => p.id === item.id);
+  carrito.forEach((item) => {
+    const producto = productos.find((p) => p.id === item.id);
     if (producto && producto.precio) {
       precioTotal += producto.precio * item.qty;
     }
